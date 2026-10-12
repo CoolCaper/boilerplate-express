@@ -7,7 +7,7 @@ let app = express();
 app.use(express.static(abs_path("/public")))
 
 app.get('/', (req, res) => {
-    res.sendFile(abs_path("/public"));
+    res.sendFile(abs_path("/views/index.html"));
 });
 
 
