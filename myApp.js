@@ -4,11 +4,10 @@ function abs_path(path) {
 let express = require('express');
 let app = express();
 
-
-app.use(express.static(abs_path('/public/style.css')));
+app.use(express.static('/public'));
 
 app.get('/', (req, res) => {
-    
+    console.log(abs_path('/views/index.html'))
     res.sendFile(abs_path('/views/index.html'));
 });
 
