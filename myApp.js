@@ -4,9 +4,9 @@ function abs_path(path) {
 let express = require('express');
 let app = express();
 
-app.use(function (req, res, next) {
+app.use((req, res) => {
     console.log("Middleware called");
-    next();
+    express.static(abs_path('/public'));
 });
 
 
