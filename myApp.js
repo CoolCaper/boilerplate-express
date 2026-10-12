@@ -5,10 +5,10 @@ let express = require('express');
 let app = express();
 
 
+app.use(express.static(abs_path('/public/style.css')));
 
 app.get('/', (req, res) => {
     
-    app.use(express.static(abs_path('/public')));
     res.sendFile(abs_path('/views/index.html'));
 });
 
