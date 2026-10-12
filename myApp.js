@@ -1,18 +1,15 @@
-function h_get_abs_path(path) {
-    abs_path = __dirname + path;
-    return abs_path;
+function abs_path(path) {
+    return __dirname + path;
 }
-
 let express = require('express');
 let app = express();
-console.log("Hello, world!");
-let absolutePath = h_get_abs_path("/views/index.html");
-console.log(absolutePath);
+
+app.use(express.static(abs_path("/public")))
+
 app.get('/', (req, res) => {
-    res.sendFile(absolutePath);
+    res.sendFile(abs_path("/public"));
 });
 
-app.use(express.static())
 
 
 
