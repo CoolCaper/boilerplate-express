@@ -6,10 +6,12 @@ let app = express();
 
 
 app.get('/', (req, res) => {
-    app.use(express.static(abs_path("/public")))
     res.sendFile(abs_path("/views/index.html"));
 });
 
+app.use('/public', (req, res) => {
+    express.static(__dirname + '/public');
+})
 
 
 
