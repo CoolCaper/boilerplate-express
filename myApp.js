@@ -4,9 +4,9 @@ function abs_path(path) {
 let express = require('express');
 let app = express();
 
-app.use(express.static(abs_path("/public")))
 
 app.get('/', (req, res) => {
+    app.use(express.static(abs_path("/public")))
     res.sendFile(abs_path("/views/index.html"));
 });
 
