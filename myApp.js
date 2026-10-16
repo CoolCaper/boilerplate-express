@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 function abs_path(path) {
     return __dirname + path;
 }
