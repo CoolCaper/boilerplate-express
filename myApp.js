@@ -6,12 +6,13 @@ function abs_path(path) {
 let express = require('express');
 let app = express();
 var env_reader = new FileReader();
-env_reader.readAsText(abs_path('/Env.env'));
 
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
     console.log(process.env)
+    
+    console.log(env_reader.readAsText(abs_path('/Env.env')));
     res.sendFile(abs_path('/views/index.html'));
 });
 
