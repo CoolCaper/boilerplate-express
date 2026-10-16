@@ -9,13 +9,15 @@ let app = express();
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
+    console.log(process.env)
     res.sendFile(abs_path('/views/index.html'));
 });
 
 app.get('/json', (req, res) => {
     object = {"message" : "Hello json"}; 
     if (process.env.MESSAGE_STYLE == "uppercase") {
-        object.message = object.message.toUpperCase()
+        console.log("Message style is set to uppercase!");
+        object.message = object.message.toUpperCase();
     }
     res.json(object);
 });
